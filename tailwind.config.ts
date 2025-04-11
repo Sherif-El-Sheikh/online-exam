@@ -61,6 +61,11 @@ const config: Config = {
 		boxShadow: {
 			'auth-input': '0px 10px 20px 0px #4461f20d',
 			'primary-auth': '0px 18px 30px 0px #4461f21c'
+		},
+		fontFamily: {
+			inter: ['var(--font-inter)', 'sans-serif'],
+			poppins: ['var(--font-poppins)', 'sans-serif'],
+			roboto: ['var(--font-roboto)', 'sans-serif'],
 		}
   	}
   },
