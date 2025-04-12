@@ -1,13 +1,9 @@
-import { Input } from "@/components/ui/input";
+import { VariantInput } from "@/components/common/variant-input";
 
 export default function Page() {
     return (
         <main className="p-4">
-            <Input
-            type="email"
-            placeholder="Enter Email"
-            className="h-12 w-1/2 rounded-md border border-slate-200 px-3"
-            />
+            <VariantInput variant="auth" placeholder="Enter Email"/>
         </main>
     );
 }

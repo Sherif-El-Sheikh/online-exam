@@ -12,6 +12,7 @@ const config: Config = {
   	extend: {
   		colors: {
 			main: '#4461F2',
+			submain: '#3364FD',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -60,7 +61,8 @@ const config: Config = {
   		},
 		boxShadow: {
 			'auth-input': '0px 10px 20px 0px #4461f20d',
-			'primary-auth': '0px 18px 30px 0px #4461f21c'
+			'primary-auth': '0px 18px 30px 0px #4461f21c',
+			'search': '0px 15px 40px 0px #0000001a'
 		},
 		fontFamily: {
 			inter: ['var(--font-inter)', 'sans-serif'],
