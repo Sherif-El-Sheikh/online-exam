@@ -9,7 +9,7 @@ const PasswordInput = forwardRef<HTMLInputElement, React.ComponentProps<typeof I
 const [showPassword, setShowPassword] = useState(false);
 
     return (
-    <div className="relative">
+    <div className="relative font-inter font-medium">
         {/* Input */}
         <VariantInput variant="auth" type={showPassword ? "text" : "password"} {...props} ref={ref} />
 

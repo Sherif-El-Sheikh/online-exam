@@ -60,7 +60,7 @@ const config: Config = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
 		boxShadow: {
-			'auth-input': '0px 10px 20px 0px #4461f20d',
+			'auth-input': '0px 10px 30px 0px #4461f20d',
 			'primary-auth': '0px 18px 30px 0px #4461f21c',
 			'search': '0px 15px 40px 0px #0000001a'
 		},
