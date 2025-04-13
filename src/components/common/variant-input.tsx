@@ -31,7 +31,7 @@ const VariantInput = React.forwardRef<HTMLInputElement, VariantInputProps>(
         <div className="relative">
             {/* Render search icon for 'search' variant */}
             {variant === "search" && (
-            <SearchIcon className="absolute left-2 sm:left-4 top-1/2 h-4 w-4 sm:h-5 sm:w-5 -translate-y-1/2 transform text-blue-700 lg:h-6 lg:w-6 " />
+            <SearchIcon className="absolute left-2 sm:left-4 top-1/2 h-4 w-4 sm:h-5 sm:w-5 -translate-y-1/2 transform text-blue-700 lg:h-6 lg:w-6" />
             )}
 
             {/* Render input with the selected variant */}
