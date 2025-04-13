@@ -1,5 +1,6 @@
 "use client"
 import { PasswordInput } from "@/components/common/password-input";
+import SwitchLanguage from "@/components/common/switch-language";
 import { VariantInput } from "@/components/common/variant-input";
 import AuthSocial from "@/components/features/auth/AuthSocial";
 import { Button } from "@/components/ui/button";
@@ -9,11 +10,12 @@ import Image from 'next/image';
 
 export default function Page() {
     return (
-        <main className='p-2 flex justify-center items-center text-center'>
+        <main className='p-2 flex justify-center items-center text-center '>
             {/* <VariantInput variant="search" placeholder="Search Quiz" className=""/> */}
             {/* <PasswordInput placeholder="Password" className="mb-4"/> */}
             {/* <Button variant={'add'} className=''>Add</Button> */}
-            <AuthSocial/>
+            {/* <AuthSocial/> */}
+            <SwitchLanguage/>
 
 
         </main>
