@@ -1,16 +1,21 @@
 "use client"
-import imag from '../../../../public/assets/images/89b7d9a2fbcfd109b058718b5287b696.jpeg'
 import { PasswordInput } from "@/components/common/password-input";
 import { VariantInput } from "@/components/common/variant-input";
+import AuthSocial from "@/components/features/auth/AuthSocial";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
 
+
+
 export default function Page() {
     return (
-        <main className='p-2'>
+        <main className='p-2 flex justify-center items-center text-center'>
             {/* <VariantInput variant="search" placeholder="Search Quiz" className=""/> */}
             {/* <PasswordInput placeholder="Password" className="mb-4"/> */}
-            <Button variant={'add'} className=''>Add</Button>
+            {/* <Button variant={'add'} className=''>Add</Button> */}
+            <AuthSocial/>
+
+
         </main>
 
     );
