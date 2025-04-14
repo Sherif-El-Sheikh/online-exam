@@ -20,9 +20,9 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         auth: "bg-main w-4/5 sm:w-[410px] hover:bg-submain text-base font-poppins font-normal text-white shadow-primary-auth transition-all duration-300",
-        signin: "h-6 w-16 focus:ring-0 focus-visible:ring-offset-0 focus-visible:ring-slate-400 focus-visible:ring-1 hover:bg-transparent font-inter font-medium text-base sm:text-xl text-main hover:text-main px-2",
+        signin: "h-6 w-16 focus:ring-0 focus-visible:ring-offset-0 focus-visible:ring-slate-400 focus-visible:ring-1 hover:bg-transparent font-inter font-medium text-sm md:text-base lg:text-xl text-main hover:text-main px-2",
         register:
-          "h-10 w-32 rounded-2xl border border-slate-300 bg-transparent text-main hover:bg-slate-100/70 transition-all duration-300 shadow-auth-input font-inter font-normal text-base sm:text-xl p-4 sm:p-5",
+          "h-10 w-32 rounded-2xl border border-slate-300 bg-transparent text-main hover:bg-slate-100/70 transition-all duration-300 shadow-auth-input font-inter font-normal text-sm md:text-base lg:text-xl p-4 sm:p-5",
         startQuiz:
           "h-10 sm:h-12 md:h-14 w-24 md:w-36 min-[990px]:w-44 xl:w-48 rounded-[20px] bg-main hover:bg-submain transition-all duration-400 sm:py-4 sm:px-8 font-poppins font-semibold text-xs sm:text-sm md:text-base lg:text-lg text-white",
         start:
