@@ -57,9 +57,11 @@ const config: Config = {
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
+  			sm: 'calc(var(--radius) - 4px)',
+			auth: '100px'
   		},
 		boxShadow: {
+			'auth-side': '0px 5px 100px 0px #0000001A',
 			'auth-input': '0px 10px 30px 0px #4461f20d',
 			'primary-auth': '0px 18px 30px 0px #4461f21c',
 			'search': '0px 15px 40px 0px #0000001a'

@@ -2,7 +2,8 @@
 import { PasswordInput } from "@/components/common/password-input";
 import SwitchLanguage from "@/components/common/switch-language";
 import { VariantInput } from "@/components/common/variant-input";
-import AuthSocial from "@/components/features/auth/AuthSocial";
+import AuthSide from "@/components/features/auth/auth-side";
+import AuthSocial from "@/components/features/auth/auth-social";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
 
@@ -10,12 +11,13 @@ import Image from 'next/image';
 
 export default function Page() {
     return (
-        <main className='p-2 flex justify-center items-center text-center '>
+        <main className=''>
             {/* <VariantInput variant="search" placeholder="Search Quiz" className=""/> */}
             {/* <PasswordInput placeholder="Password" className="mb-4"/> */}
             {/* <Button variant={'add'} className=''>Add</Button> */}
             {/* <AuthSocial/> */}
-            <SwitchLanguage/>
+            {/* <SwitchLanguage/> */}
+            <AuthSide/>
 
 
         </main>
