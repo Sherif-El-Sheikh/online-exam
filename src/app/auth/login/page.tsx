@@ -2,6 +2,7 @@
 import { PasswordInput } from "@/components/common/password-input";
 import SwitchLanguage from "@/components/common/switch-language";
 import { VariantInput } from "@/components/common/variant-input";
+import AuthNav from "@/components/features/auth/auth-nav";
 import AuthSide from "@/components/features/auth/auth-side";
 import AuthSocial from "@/components/features/auth/auth-social";
 import { Button } from "@/components/ui/button";
@@ -17,7 +18,8 @@ export default function Page() {
             {/* <Button variant={'add'} className=''>Add</Button> */}
             {/* <AuthSocial/> */}
             {/* <SwitchLanguage/> */}
-            <AuthSide/>
+            {/* <AuthSide/> */}
+            <AuthNav/>
 
 
         </main>

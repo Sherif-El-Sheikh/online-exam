@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils/tailwind-merge"
 
-// Added custom variants: auth, register, startQuiz, start, addQuestion,back, next, add
+// Added custom variants: auth, signin, register, startQuiz, start, addQuestion,back, next, add
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
@@ -20,6 +20,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         auth: "bg-main w-4/5 sm:w-[410px] hover:bg-submain text-base font-poppins font-normal text-white shadow-primary-auth transition-all duration-300",
+        signin: "h-6 w-16 focus:ring-0 focus-visible:ring-offset-0 focus-visible:ring-slate-400 focus-visible:ring-1 hover:bg-transparent font-inter font-medium text-base sm:text-xl text-main hover:text-main px-2",
         register:
           "h-10 w-32 rounded-2xl border border-slate-300 bg-transparent text-main hover:bg-slate-100/70 transition-all duration-300 shadow-auth-input font-inter font-normal text-base sm:text-xl p-4 sm:p-5",
         startQuiz:
