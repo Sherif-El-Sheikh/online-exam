@@ -77,6 +77,3 @@ body {
   }
 }
 
-.continue {
-  @apply font-inter font-medium text-sm sm:text-base text-slate-500 relative before:absolute before:bg-slate-300 before:h-[1px] before:w-24 sm:before:w-36 before:top-1/2 before:-left-5 sm:before:-left-10 before:transform before:-translate-y-1/2 after:absolute after:bg-slate-300 after:h-[1px] after:w-24 sm:after:w-36 after:top-1/2 after:right-9 sm:after:-right-5 after:transform after:-translate-y-1/2 mb-6
-}

@@ -13,7 +13,7 @@ interface VariantInputProps extends React.ComponentProps<typeof Input> {
 
 //Styles for each variant
 const variantStyles: Record<StyledInputVariant, string> = {
-    auth:"sm:w-[410px] h-10 sm:h-12 rounded-lg border border-slate-300 px-3 py-4 text-sm/6 sm:text-base/6 placeholder:text-slate-500 placeholder:text-sm/6 sm:placeholder:text-base/6 focus-visible:ring-2 focus-visible:ring-submain shadow-auth-input bg-slate-50 font-inter font-medium",
+    auth:"h-10 md:h-12 rounded-lg border border-slate-300 px-3 py-4 text-sm/6 sm:text-base/6 placeholder:text-slate-500 placeholder:text-sm/6 sm:placeholder:text-base/6 focus-visible:ring-2 focus-visible:ring-submain shadow-auth-input bg-slate-50 font-inter font-medium",
     search:
     "md:w-[370px] min-[990px]:w-[540px] lg:w-[590px] xl:w-[760px] h-10 sm:h-12 md:h-14 rounded-[1.3rem] border-none shadow-search py-4 px-8 sm:px-16 text-sm/[100%] md:text-base/[100%] lg:text-lg/[100%] placeholder:text-xs/[100%] sm:placeholder:text-sm/[100%] md:placeholder:text-base/[100%] lg:placeholder:text-lg/[100%] focus-visible:ring-1 focus-visible:ring-submain font-poppins font-normal",
     diploma:

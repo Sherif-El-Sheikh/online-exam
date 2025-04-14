@@ -6,19 +6,19 @@ import React from 'react'
 
 export default function AuthNav() {
     return (
-        <nav className='flex items-center max-[375px]:justify-center justify-end space-x-4 md:space-x-5 lg:space-x-12 pt-7 pl-8 md:pl-9 lg:pl-12 pr-8 md:pt-20 md:pr-9 lg:pr-12'>
+        <nav className="flex items-center justify-end space-x-4 pl-8 pr-8 pt-7 max-[375px]:justify-center md:space-x-5 md:pl-0 md:pr-7 md:pt-20 lg:space-x-12 lg:pl-8 lg:pr-8 xl:pr-32">
             {/* Select Lang */}
-            <SwitchLanguage/>
+            <SwitchLanguage />
 
             {/* Button Signin*/}
             <Button variant="signin">
-                <Link href="/auth/login">Sign in</Link>
+            <Link href="/auth/login">Sign in</Link>
             </Button>
 
             {/* Button Register*/}
             <Button variant="register">
-                <Link href="/auth/register">Register</Link>
+            <Link href="/auth/register">Register</Link>
             </Button>
         </nav>
-    )
+    );
 }

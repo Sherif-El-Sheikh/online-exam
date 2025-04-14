@@ -19,7 +19,7 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        auth: "bg-main w-4/5 sm:w-[410px] hover:bg-submain text-base font-poppins font-normal text-white shadow-primary-auth transition-all duration-300",
+        auth: "bg-main w-full hover:bg-submain text-base font-poppins font-normal text-white shadow-primary-auth transition-all duration-300",
         signin: "h-6 w-16 focus:ring-0 focus-visible:ring-offset-0 focus-visible:ring-slate-400 focus-visible:ring-1 hover:bg-transparent font-inter font-medium text-sm md:text-base lg:text-xl text-main hover:text-main px-2",
         register:
           "h-10 w-32 rounded-2xl border border-slate-300 bg-transparent text-main hover:bg-slate-100/70 transition-all duration-300 shadow-auth-input font-inter font-normal text-sm md:text-base lg:text-xl p-4 sm:p-5",
@@ -37,7 +37,7 @@ const buttonVariants = cva(
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
-        xl: "h-12 sm:h-14 rounded-[20px] p-2",
+        xl: "h-12 md:h-14 rounded-[20px] p-2",
         icon: "h-10 w-10",
       },
     },
