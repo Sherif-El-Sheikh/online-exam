@@ -13,17 +13,17 @@ export default function SwitchLanguage() {
         <DropdownMenu>
             {/* Trigger */}
             <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="px-2 gap-1 focus:ring-0 focus-visible:ring-offset-0 focus-visible:ring-slate-400 focus-visible:ring-1">
+                <Button variant="ghost" size="sm" className="px-2 gap-1 focus:ring-0 focus-visible:ring-offset-0 focus-visible:ring-transparent focus-visible:ring-1">
                 {/* Name */}
-                <span className="font-inter font-medium text-base sm:text-xl">English</span>
+                <span className="font-inter font-medium text-sm md:text-base lg:text-xl">English</span>
 
-                {/* Icon */}
+                {/* Chevron Icon */}
                 <ChevronDown className="h-4 w-4"/>
                 </Button>
             </DropdownMenuTrigger>
 
             {/* Dropdown Content */}
-            <DropdownMenuContent align="end" className="font-inter font-medium text-base sm:text-xl">
+            <DropdownMenuContent align="end" className="font-inter font-medium text-sm md:text-base lg:text-xl">
                 {languages.map((language) => (
                 <DropdownMenuItem key={language.code}>
                     {language.name}

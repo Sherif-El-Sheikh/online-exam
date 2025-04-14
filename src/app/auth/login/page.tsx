@@ -19,7 +19,7 @@ export default function Page() {
             {/* <AuthSocial/> */}
             {/* <SwitchLanguage/> */}
             {/* <AuthSide/> */}
-            <AuthNav/>
+            {/* <AuthNav/> */}
 
 
         </main>
