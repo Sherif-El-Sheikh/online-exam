@@ -16,7 +16,7 @@ export default function AuthSocial() {
                 <SocialIconItem href='https://www.youtube.com/watch?v=QiIzrFQId9E'>
                     <Image
                     src={logoGoogle}
-                    alt="prof"
+                    alt="google icon"
                     width={24}
                     height={24}
                     />
