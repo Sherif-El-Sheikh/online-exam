@@ -8,33 +8,38 @@ export default function AuthSocial() {
         // Continue With
         <div className="text-center">
             {/* Title */}
-            <p className="continue">Or Continue with</p>
+            <div className="relative flex items-center mb-6">
+                <div className="flex-grow h-px bg-slate-200"></div>
+                    <span className="px-4 bg-white text-sm sm:text-base text-slate-500 font-medium font-inter">Or Continue with</span>
+                <div className="flex-grow h-px bg-slate-200"></div>
+            </div>
 
             {/* Icons */}
-            <ul className="flex itmes-center justify-center gap-7 sm:gap-8">
+            <ul className="flex itmes-center justify-center gap-4 lg:gap-8">
                 {/*Google*/}
-                <SocialIconItem href='https://www.youtube.com/watch?v=QiIzrFQId9E'>
+                <SocialIconItem href=''>
                     <Image
                     src={logoGoogle}
                     alt="google icon"
-                    width={24}
-                    height={24}
+                    width={20}
+                    height={20}
+                    className="lg:w-5"
                     />
                 </SocialIconItem>
 
                 {/*Facebook*/}
                 <SocialIconItem href='https://www.facebook.com'>
-                    <FaFacebook className=" text-[#1877F2]" />
+                    <FaFacebook className=" text-[#1877F2] text-2xl" />
                 </SocialIconItem>
 
                 {/*Twitter*/}
                 <SocialIconItem href='https://api.twitter.com'>
-                    <FaTwitter className=" text-[#1D9BF0]" />
+                    <FaTwitter className=" text-[#1D9BF0] text-2xl" />
                 </SocialIconItem>
                 
                 {/*Apple*/}
                 <SocialIconItem href='https://appleid.apple.com'>
-                    <FaApple className=" text-black" />
+                    <FaApple className=" text-black text-2xl" />
                 </SocialIconItem>
             </ul>
         </div>

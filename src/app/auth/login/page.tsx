@@ -1,31 +1,32 @@
-"use client"
-import { PasswordInput } from "@/components/common/password-input";
-import SwitchLanguage from "@/components/common/switch-language";
-import { VariantInput } from "@/components/common/variant-input";
-import AuthNav from "@/components/features/auth/auth-nav";
-import AuthSide from "@/components/features/auth/auth-side";
-import AuthSocial from "@/components/features/auth/auth-social";
-import { Button } from "@/components/ui/button";
-import Image from 'next/image';
-
+import LoginForm from "./_components/login-form";
 
 
 export default function Page() {
     return (
-        <main className=''>
-            {/* <VariantInput variant="search" placeholder="Search Quiz" className=""/> */}
-            {/* <PasswordInput placeholder="Password" className="mb-4"/> */}
-            {/* <Button variant={'add'} className=''>Add</Button> */}
-            {/* <AuthSocial/> */}
-            {/* <SwitchLanguage/> */}
-            {/* <AuthSide/> */}
-            {/* <AuthNav/> */}
+        <div className="px-3 py-2">
+            {/* Title */}
+            <h2 className="mb-3 font-inter text-base font-bold sm:text-lg md:mb-5 md:mt-20 md:text-xl lg:text-2xl">
+            Sign in
+            </h2>
 
-
-        </main>
-
+            {/* Login Form */}
+            <LoginForm />
+        </div>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
