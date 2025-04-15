@@ -18,6 +18,7 @@ export default function VerifyForm() {
         resetCode: "",
         },
     });
+    
     return (
         <Form {...form}>
             <form className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 2xl:w-1/2">
@@ -46,7 +47,7 @@ export default function VerifyForm() {
                 )}
                 />
 
-                {/* Have an account */}
+                {/* Have An Account */}
                 <p className="mt-4 mb-6 text-end font-poppins text-sm font-normal lg:text-base">
                 Didn’t receive a code?
                     <Button variant="ghost" className="mx-2 text-main hover:text-main hover:bg-transparent">
@@ -54,7 +55,7 @@ export default function VerifyForm() {
                     </Button>
                 </p>
 
-                {/* Send Mail */}
+                {/* Verify Code */}
                 <Button size="xl" variant="auth" type="submit">
                 Verify
                 </Button>
