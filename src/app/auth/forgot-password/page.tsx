@@ -8,7 +8,7 @@ export default function Page() {
             Forgot your password?
             </h2>
 
-            {/* Login Form */}
+            {/* Forgot Form */}
             <ForgotForm/>
         </div>
     );
