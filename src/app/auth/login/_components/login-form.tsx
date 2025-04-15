@@ -16,7 +16,7 @@ export default function LoginForm() {
     })
     return (
         <Form {...form}>
-            <form className="md:w-3/4 lg:w-3/4 xl:w-4/6 2xl:w-1/2">
+            <form className="min-[576px]:max-md:w-3/4 md:w-3/4 lg:w-3/4 xl:w-4/6 2xl:w-1/2 min-[576px]:max-md:mx-auto">
                 {/* Email */}
                 <FormField
                 control={form.control}
@@ -66,7 +66,7 @@ export default function LoginForm() {
                 />
 
                 {/* Recover Password ? */}
-                <Link href="/auth/forgot-password" className="text-end flex justify-end font-poppins font-normal text-base text-main mb-7 ">
+                <Link href="/auth/forgot-password" className="text-end flex justify-end font-poppins font-normal text-sm lg:text-base text-main mb-6 ">
                 Recover Password ?
                 </Link>
 
