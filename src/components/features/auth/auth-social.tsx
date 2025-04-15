@@ -8,7 +8,7 @@ export default function AuthSocial() {
         // Continue With
         <div className="text-center">
             {/* Title */}
-            <div className="relative flex items-center mb-6">
+            <div className="relative flex items-center mb-4">
                 <div className="flex-grow h-px bg-slate-200"></div>
                     <span className="px-4 bg-white text-sm sm:text-base text-slate-500 font-medium font-inter">Or Continue with</span>
                 <div className="flex-grow h-px bg-slate-200"></div>
