@@ -29,7 +29,7 @@ export default function RegisterForm() {
 
     return (
         <Form {...form}>
-            <form className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 2xl:w-1/2">
+            <form className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 3xl:w-1/2">
                 {/* Username */}
                 <FormField
                 control={form.control}
@@ -200,7 +200,7 @@ export default function RegisterForm() {
                 </p>
 
                 {/* Sign up */}
-                <Button size="xl" variant="auth" type="submit" className="mb-6 sm:mb-8">
+                <Button size="xl" variant="auth" type="submit" className="mb-5 sm:mb-7">
                 Create Account
                 </Button>
 

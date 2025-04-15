@@ -21,7 +21,7 @@ export default function ForgotForm() {
     
     return (
         <Form {...form}>
-            <form className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 2xl:w-1/2">
+            <form className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 3xl:w-1/2">
                 {/* Forgot */}
                 <FormField
                 control={form.control}
