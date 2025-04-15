@@ -5,7 +5,7 @@ export default function AuthSide() {
     return (
         <section className="hidden min-h-screen rounded-br-auth rounded-tr-auth bg-blue-100/40 shadow-auth-side md:block md:w-[450px] lg:w-[550px] xl:min-w-[650px] 2xl:w-3/4">
             <div className="h-full md:w-[350px] md:px-10 lg:w-[482px] lg:pl-20 lg:pr-20 2xl:w-3/4">
-                <header className="font-poppins md:pb-40 md:pt-20 lg:pb-16 2xl:pb-36">
+                <header className="font-poppins md:pb-40 md:pt-8 lg:pb-16 2xl:pb-36">
                     {/* Logo */}
                     <h1 className="mb-2 font-bold md:text-3xl/[150%] lg:text-5xl/[150%]">
                         Welcome to
@@ -20,14 +20,9 @@ export default function AuthSide() {
 
                 {/* /Side Image */}
                 <div className="flex items-center justify-center">
-                    <Image 
-                    src={examBro}
-                    width={320}
-                    priority 
-                    alt="online exam photo" 
-                    />
+                    <Image src={examBro} width={320} priority alt="online exam photo" />
                 </div>
             </div>
         </section>
     );
-}
+    }
