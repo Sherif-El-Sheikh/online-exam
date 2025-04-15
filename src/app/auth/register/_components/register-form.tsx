@@ -194,7 +194,7 @@ export default function RegisterForm() {
                 {/* Have an account */}
                 <p className="my-4 text-center font-poppins text-sm font-normal lg:text-base">
                 Already have an account?
-                    <Link href="/auth/login" className="mx-1 text-main">
+                    <Link href="/auth/login" className="mx-2 text-main">
                         Sign in
                     </Link>
                 </p>
