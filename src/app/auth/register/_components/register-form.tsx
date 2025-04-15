@@ -195,7 +195,7 @@ export default function RegisterForm() {
                 <p className="my-4 text-center font-poppins text-sm font-normal lg:text-base">
                 Already have an account?
                     <Link href="/auth/login" className="mx-1 text-main">
-                        Login
+                        Sign in
                     </Link>
                 </p>
 
