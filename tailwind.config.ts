@@ -70,6 +70,9 @@ const config: Config = {
 			inter: ['var(--font-inter)', 'sans-serif'],
 			poppins: ['var(--font-poppins)', 'sans-serif'],
 			roboto: ['var(--font-roboto)', 'sans-serif'],
+		},
+		screens: {
+			'3xl': '1600px'
 		}
   	}
   },
