@@ -204,7 +204,7 @@ export default function RegisterForm() {
                 Create Account
                 </Button>
 
-                {/* Continue with */}
+                {/* Continue With */}
                 <AuthSocial />
             </form>
         </Form>

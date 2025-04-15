@@ -78,12 +78,12 @@ export default function LoginForm() {
                 Recover Password ?
                 </Link>
 
-                {/* Sign in */}
+                {/* Sign In */}
                 <Button size="xl" variant="auth" type="submit" className="mb-6 sm:mb-8">
                 Sign in
                 </Button>
 
-                {/* Continue with */}
+                {/* Continue With */}
                 <AuthSocial />
             </form>
         </Form>
