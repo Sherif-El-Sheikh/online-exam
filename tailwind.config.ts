@@ -13,6 +13,9 @@ const config: Config = {
   		colors: {
 			main: '#4461F2',
 			submain: '#3364FD',
+			dashboard: '#FBF9F9',
+			dashboardText: '#696F79',
+			dashboardSubText: '#535353',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
