@@ -45,7 +45,7 @@ export function SidebarClientControls({role} : SidebarClientControlsProps) {
         if(route.baseHref) {
             return `/${role}-` + route.baseHref
         }
-        return route.href || '#'
+        return route.href!
     }
 
     return (
