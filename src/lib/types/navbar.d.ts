@@ -7,3 +7,8 @@ declare type NavbarProps = {
 declare type NavbarClientProps = {
     role: string
 }
+
+declare type MobileMenuToggleProps = {
+    isMobile: boolean,
+    toggleMobileSidebar: () => void
+}
