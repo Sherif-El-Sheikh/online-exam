@@ -9,12 +9,12 @@ export default function DashboardLayout({ children }: {children: React.ReactNode
             <div className="flex relative">
                 {/* Sidebar */}
                 <Sidebar>
-                    <SidebarClientControls role="user"/>
+                    <SidebarClientControls role="admin"/>
                 </Sidebar>
 
                 {/* Navbar and Page Content */}
                 <div className="flex flex-col flex-1 min-h-screen">
-                    <Navbar role="user"/>
+                    <Navbar role="admin"/>
                         
                     <main className="flex-1 bg-dashboard/70">
                         {children}

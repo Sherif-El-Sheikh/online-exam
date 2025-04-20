@@ -28,7 +28,7 @@ export  function ClientNavbarButtons({ role }: Props) {
 
             {/* shown for admins */}
             {role === "admin" && (
-                <Button variant="startQuiz" onClick={handleAddDiploma}>
+                <Button variant="startQuiz" className="min-[640px]:text-[0.675rem] max-[640px]:text-[0.65rem]" onClick={handleAddDiploma}>
                     Add Diploma
                 </Button>
             )}
