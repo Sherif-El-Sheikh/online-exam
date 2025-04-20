@@ -24,7 +24,7 @@ const buttonVariants = cva(
         register:
           "h-10 w-32 rounded-2xl border border-slate-300 bg-transparent text-main hover:bg-slate-100/70 transition-all duration-300 shadow-auth-input font-inter font-normal text-sm md:text-base lg:text-xl p-4 sm:p-5",
         startQuiz:
-          "h-10 sm:h-12 md:h-14 w-24 md:w-36 min-[990px]:w-44 xl:w-48 rounded-[20px] bg-main hover:bg-submain transition-all duration-400 sm:py-4 sm:px-8 font-poppins font-semibold text-xs sm:text-sm md:text-base lg:text-lg text-white",
+          "h-10 sm:h-12 md:h-14 w-20 md:w-36 min-[990px]:w-44 xl:w-48 rounded-[20px] bg-main hover:bg-submain transition-all duration-400 sm:py-4 sm:px-8 font-poppins font-semibold text-xs sm:text-sm md:text-base lg:text-lg text-white",
         start:
           "h-6 w-20 rounded-xl py-3 px-6 bg-main hover:bg-submain font-inter font-medium text-sm transition-all duration-300 text-white",
         addQuestion:
