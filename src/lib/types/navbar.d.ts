@@ -1,14 +1,15 @@
 import { ReactNode } from "react"
 
 declare type NavbarProps = {
-    children: ReactNode
+    role: string
 }
 
 declare type NavbarClientProps = {
     role: string
 }
 
-declare type MobileMenuToggleProps = {
-    isMobile: boolean,
-    toggleMobileSidebar: () => void
+
+declare type MobileSidebarProp = {
+    children: ReactNode
 }
+

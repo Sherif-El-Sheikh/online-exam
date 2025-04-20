@@ -37,7 +37,7 @@ export function SidebarClientControls({role} : SidebarClientControlsProps) {
     // Gets the current route to highlight the active link
     const pathname = usePathname();
 
-    // Accessing sidebar states using useSidebar hook.
+    // Accessing sidebar states using useSidebar hook
     const {isDesktopExpanded, isMobileOpen, isMobile, isCollapsed, toggleDesktopSidebar, toggleMobileSidebar} = useSidebar()
 
     /**
