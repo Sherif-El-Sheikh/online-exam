@@ -128,7 +128,7 @@ export function SidebarClientControls({role} : SidebarClientControlsProps) {
                                 >
                                     <route.icon className="h-4 w-4 md:h-5 md:w-5 transition-transform duration-500 ease-in-out"/>
                                     <span className={cn(
-                                        "text-base md:text-lg transition-all duration-500 ease-in-out ",
+                                        "text-base md:text-lg lg:text-xl transition-all duration-500 ease-in-out ",
                                         isCollapsed
                                             ? "scale-0 opacity-0 translate-y-3 pointer-events-none absolute -left-40 delay-0"
                                             : "scale-100 opacity-100 translate-y-0 pointer-events-auto delay-100"

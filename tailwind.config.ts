@@ -76,6 +76,9 @@ const config: Config = {
 		},
 		screens: {
 			'3xl': '1600px'
+		},
+		backgroundImage: {
+			'user-avatar': 'linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/images/avatar.png")'
 		}
   	}
   },

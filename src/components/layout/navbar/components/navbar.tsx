@@ -9,7 +9,7 @@ import { UserNav } from "./user-nav";
 
 export function Navbar({role}: NavbarProps) {
     return (
-        <nav className="font-poppins bg-dashboard shadow-lg">
+        <nav className="font-poppins bg-dashboard shadow-lg mb-6 md:mb-8">
             <div className='flex h-16 items-center px-2 sm:px-6 my-3 sm:my-5'>
                 {/* Mobile sheet to open sidebar */}
                 <MobileSidebar>
