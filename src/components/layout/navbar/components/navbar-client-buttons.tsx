@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 
 interface Props {
-    role: string
+    role: "admin" | "user"
 }
 
 export  function ClientNavbarButtons({ role }: Props) {

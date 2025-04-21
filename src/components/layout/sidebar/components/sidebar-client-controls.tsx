@@ -21,7 +21,7 @@ const dashboardRoutes : DashboardRoute[] = [
     {
         name: "Quiz History",
         icon: History,
-        href: '/user-dashboard/quiz-history',
+        href: '/user/quiz-history',
         roles: ["user"]
     },
     {

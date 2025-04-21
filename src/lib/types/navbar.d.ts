@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 declare type NavbarProps = {
-    role: string
+    role: "admin" | "user"
 }
 
 declare type MobileSidebarProp = {

@@ -5,13 +5,15 @@ declare type SidebarProps = {
 }
 
 declare type SidebarClientControlsProps = {
-    role: string
+    role: "admin" | "user"
 }
+
+type Role = "admin" | "user";
 
 declare type DashboardRoute = {
     name: string,
     icon: React.ComponentType<{className?: string}>,
-    roles: string[],
+    roles: Role[],
     href?: string,
     baseHref?: string
 }

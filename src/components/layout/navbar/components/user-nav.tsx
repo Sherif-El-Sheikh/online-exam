@@ -4,8 +4,13 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
 import avatar from "../../../../../public/assets/images/avatar.png"
 import Image from 'next/image'
 import { LogOut, Settings, User } from "lucide-react";
+import { NavbarProps } from "@/lib/types/navbar";
+import Link from "next/link";
 
-export function UserNav() {
+
+export function UserNav({role}: NavbarProps) {
+    //Base route based on the user role
+    const baseRoute = role === "admin" ? "/admin-dashboard" : "/user-dashboard"
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -43,22 +48,31 @@ export function UserNav() {
                 {/* Grouping Profile and Settings */}
                     <DropdownMenuGroup>
                         {/* Profile */}
-                        <DropdownMenuItem>
-                            <User className="mr-2 h-4 w-4"/>
-                            <span>Profile</span>
+                        <Link href={`${baseRoute}/profile`} passHref>
+                        <DropdownMenuItem asChild>
+                            <div className="flex items-center gap-2 cursor-pointer">
+                                <User className="h-4 w-4" />
+                                <span>Profile</span>
+                            </div>
                         </DropdownMenuItem>
+                        </Link>
+
 
                         {/* Settings */}
-                        <DropdownMenuItem>
-                            <Settings className="mr-2 h-4 w-4"/>
-                            <span>Settings</span>
+                        <Link href={`${baseRoute}/settings`} passHref>
+                        <DropdownMenuItem asChild>
+                            <div className="flex items-center gap-2 cursor-pointer">
+                                <Settings className=" h-4 w-4"/>
+                                <span>Settings</span>
+                            </div>
                         </DropdownMenuItem>
+                        </Link>
                     </DropdownMenuGroup>
 
                 <DropdownMenuSeparator/>
 
                 {/* Log Out */}
-                <DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
                     <LogOut className="mr-2 h-4 w-4"/>
                     <span>Log out</span>
                 </DropdownMenuItem>

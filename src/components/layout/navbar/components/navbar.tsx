@@ -29,7 +29,7 @@ export function Navbar({role}: NavbarProps) {
                     <ClientNavbarButtons role={role}/>
                     
                     {/* User avatar with dropdown menu */}
-                    <UserNav/>
+                    <UserNav role={role}/>
                 </div>
             </div>
         </nav>
