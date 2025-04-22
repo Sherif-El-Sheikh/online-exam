@@ -1,5 +1,4 @@
-import Subjects from "../(shared)/_components/subjects";
-import { UserInfo } from "./_components/user-info";
+import Subjects from "../../(shared)/_components/subjects";
 
 const subjects = [
     {
@@ -49,11 +48,11 @@ const subjects = [
     }
 ];
 
+
 export default function Page() {
     return (
         <div className="p-4 md:p-7 space-y-6 md:space-y-8">
-            <UserInfo/>
-            <Subjects subjects={subjects} role="user"/>
+        <Subjects subjects={subjects} showAll role="admin"/>
         </div>
     )
 }

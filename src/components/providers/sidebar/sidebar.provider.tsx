@@ -13,16 +13,28 @@ export function SidebarProvider({children} : {children: ReactNode}) {
 
 
     useEffect(() => {
-        // Close the sidebar for mobile if on desktop
+        // Handle desktop resizing
         const handleResize = () => {
-            if (window.innerWidth >= 768) {
-                setIsMobileOpen(false)
+            const width = window.innerWidth;
+
+            // Close the mobile sidebar if screen is desktop
+            if (width >= 768) {
+                setIsMobileOpen(false);
             }
-        }
+
+            // Auto-collapse the sidebar between 768px and 990px
+            if (width >= 768 && width <= 990) {
+                setIsDesktopExpanded(false);
+            } else if (width > 990) {
+                setIsDesktopExpanded(true);
+            }
+        };
+
         // Check if the device is mobile based on screen width
         const checkMobile = () => {
             setIsMoblie(window.innerWidth < 768);
         }
+        
         // Triggers handleResize function when resizing
         window.addEventListener("resize", handleResize);
 

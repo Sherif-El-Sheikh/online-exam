@@ -31,7 +31,7 @@ export function UserNav({role}: NavbarProps) {
                 </Button>
             </DropdownMenuTrigger>
 
-            <DropdownMenuContent className="w-56 mt-3" align="end" forceMount>
+            <DropdownMenuContent className="w-48 sm:w-56 mt-3 sm:mt-4" align="end" forceMount>
             {/* User Information */}
                 <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">

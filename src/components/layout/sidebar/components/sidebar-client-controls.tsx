@@ -1,6 +1,6 @@
 "use client"
 
-import { History, LayoutGrid, LogOut, PanelLeft, PanelLeftClose, X } from "lucide-react";
+import { ClipboardList, History, LayoutGrid, LogOut, PanelLeft, PanelLeftClose, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import dashboardLogo from "../../../../../public/assets/images/dashboardLogo.png"
@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils/tailwind-merge";
 import { DashboardRoute, SidebarClientControlsProps } from "@/lib/types/sidebar";
 import { useSidebar } from "@/components/providers/sidebar/sidebar.provider";
+
 
 // Sidebar links based on roles (admin/user)
 const dashboardRoutes : DashboardRoute[] = [
@@ -19,9 +20,15 @@ const dashboardRoutes : DashboardRoute[] = [
         roles: ["admin", "user"]
     },
     {
+        name: "Exams",
+        icon: ClipboardList,
+        baseHref: 'dashboard/exams',
+        roles: ["admin", "user"]
+    },
+    {
         name: "Quiz History",
         icon: History,
-        href: '/user/quiz-history',
+        href: '/user-dashboard/quiz-history',
         roles: ["user"]
     },
     {
@@ -55,7 +62,7 @@ export function SidebarClientControls({role} : SidebarClientControlsProps) {
     return (
         <>
             <div className={cn (
-                "min-h-screen bg-dashboard shadow-lg border-r text-dashboardText w-64 font-poppins font-semibold md:w-64 md:data-[collapsed=true]:w-16 transition-all duration-500 ease-in-out",
+                "min-h-screen h-full bg-dashboard shadow-lg border-r text-dashboardText w-64 font-poppins font-semibold md:w-64 md:data-[collapsed=true]:w-16 transition-all duration-500 ease-in-out",
                 isMobile ? "fixed left-0 top-0 bottom-0 min-h-screen" : "relative",
                 isMobile && "z-40",
                 !isMobile && "md:block",

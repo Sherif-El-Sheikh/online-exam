@@ -6,7 +6,7 @@ export default function DashboardLayout({ children }: {children: React.ReactNode
     return (
         <SidebarProvider>
             {/* Main container */}
-            <div className="flex relative">
+            <div className="flex relative min-h-screen">
                 {/* Sidebar */}
                 <Sidebar>
                     <SidebarClientControls role="user"/>
