@@ -4,7 +4,7 @@ function getExamsBySubject (subjectId: string) {
     return subjectId
 }
 
-export default function Page({params}: SubjectPageParams) {
+export default function Page({params}: SubjectIdParams) {
     const exams = getExamsBySubject(params.subjectId);
     return (
         <>

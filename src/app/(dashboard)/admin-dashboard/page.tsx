@@ -1,5 +1,6 @@
 import Subjects from "../(shared)/_components/subjects";
 
+// Subjects (static data temporary)
 const subjects = [
     {
     _id: "670037f6728c92b7fdf434fc",
@@ -51,6 +52,8 @@ const subjects = [
 export default function Page() {
     return (
         <div className="p-4 md:p-7 space-y-6 md:space-y-8">
+            
+            {/* Subjects component, 3 by default */}
             <Subjects subjects={subjects} role="admin"/>
         </div>
     )

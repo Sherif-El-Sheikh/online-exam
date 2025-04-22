@@ -10,7 +10,7 @@ declare type SubjectsProps = {
     role: "admin" | "user"
 }
 
-declare type SubjectPageParams = {
+declare type SubjectIdParams = {
     params: {
         subjectId: string;
     }
