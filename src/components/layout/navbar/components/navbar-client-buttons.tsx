@@ -10,9 +10,6 @@ interface Props {
 export function ClientNavbarButtons({ role }: Props) {
     const pathname = usePathname();
 
-    const handleStartQuiz = () => {
-        console.log("Starting quiz...");
-    }
 
     const handleAddDiploma = () => {
         console.log("Adding diploma...");
@@ -24,12 +21,6 @@ export function ClientNavbarButtons({ role }: Props) {
 
     return (
         <>
-            {/* Shown for users */}
-            {role === "user" && (
-                <Button variant="startQuiz" onClick={handleStartQuiz}>
-                    Start Quiz
-                </Button>
-            )}
 
             {/* Shown for admins */}
             {role === "admin" && (

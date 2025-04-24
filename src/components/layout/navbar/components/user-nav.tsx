@@ -72,7 +72,7 @@ export function UserNav({role}: NavbarProps) {
                 <DropdownMenuSeparator/>
 
                 {/* Log Out */}
-                <DropdownMenuItem className="cursor-pointer">
+                <DropdownMenuItem className="cursor-pointer text-destructive focus:text-destructive hover:text-destructive">
                     <LogOut className="mr-2 h-4 w-4"/>
                     <span>Log out</span>
                 </DropdownMenuItem>
