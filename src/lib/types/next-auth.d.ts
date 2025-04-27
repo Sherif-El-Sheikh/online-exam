@@ -13,6 +13,16 @@ declare module "next-auth" {
         role: string;
     }
 
+    /** The OAuth profile returned from your provider */
+    interface Profile {
+        email: string,
+        email_verified: boolean,
+        name: string,
+        picture: string,
+        given_name: string,
+        family_name: string
+    }
+
     /**
      * Returned by `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
      */

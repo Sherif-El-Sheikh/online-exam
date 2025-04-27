@@ -1,6 +1,7 @@
 import {NextAuthOptions} from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import { JSON_HEADER } from "./lib/constants/api.constants"
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
     // Custom pages to override default NextAuth pages
@@ -58,6 +59,12 @@ export const authOptions: NextAuthOptions = {
                     role: role
                 }
             }
+        }),
+
+        // SignIn using GoogleProvider
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID!,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET!
         })
     ],
 
@@ -65,9 +72,23 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         // This function Customize the contents of the JWT token before it gets encrypted and stored
         // The token object stores encrypted data in the cookie
-        jwt: ({token, user}) => {
+        jwt: ({token, user, profile}) => {
+            
+            // If there's a profile (from Google)
+            if (profile) {
+                token.user = {
+                    firstName: profile.given_name,
+                    lastName: profile.family_name,
+                    email: profile.email || "",
+                    _id: "",
+                    isVerified: profile.email_verified,
+                    phone: "",
+                    username: "",
+                    role: "user"
+                }
+            }
              // User exists only after a successful login - Only modify the token if user data exists
-            if(user) {
+            else if(user) {
                 token.token = user.token
                 token.user = user.user
                 token.user.role = user.role

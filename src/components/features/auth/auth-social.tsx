@@ -2,8 +2,10 @@ import Image from "next/image"
 import SocialIconItem from "./components/social-icon-item"
 import logoGoogle from '../../../../public/assets/images/Logo Google.png'
 import { FaFacebook, FaTwitter, FaApple } from 'react-icons/fa';
+import { signIn } from "next-auth/react";
 
 export default function AuthSocial() {
+
     return (
         // Continue With
         <div className="text-center">
@@ -17,29 +19,33 @@ export default function AuthSocial() {
             {/* Icons */}
             <ul className="flex itmes-center justify-center gap-4 lg:gap-8">
                 {/*Google*/}
-                <SocialIconItem href=''>
+                <SocialIconItem onClick={() => {
+                    signIn("google", {
+                        callbackUrl: '/user-dashboard'
+                    })
+                }}>
                     <Image
                     src={logoGoogle}
                     alt="google icon"
                     width={20}
                     height={20}
-                    className="lg:w-5"
+                    className="w-[17px] lg:w-[18px]"
                     />
                 </SocialIconItem>
 
                 {/*Facebook*/}
-                <SocialIconItem href='https://www.facebook.com'>
-                    <FaFacebook className=" text-[#1877F2] text-2xl" />
+                <SocialIconItem>
+                    <FaFacebook className="text-[#1877F2] scale-125" />
                 </SocialIconItem>
 
                 {/*Twitter*/}
-                <SocialIconItem href='https://api.twitter.com'>
-                    <FaTwitter className=" text-[#1D9BF0] text-2xl" />
+                <SocialIconItem>
+                    <FaTwitter className="text-[#1D9BF0] scale-125" />
                 </SocialIconItem>
                 
                 {/*Apple*/}
-                <SocialIconItem href='https://appleid.apple.com'>
-                    <FaApple className=" text-black text-2xl" />
+                <SocialIconItem>
+                    <FaApple className="text-black scale-125" />
                 </SocialIconItem>
             </ul>
         </div>
