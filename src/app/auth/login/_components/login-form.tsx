@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/form";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import {getSession, signIn} from "next-auth/react"
+import { useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
     const form = useForm({
@@ -21,14 +23,53 @@ export default function LoginForm() {
         password: "",
         },
     });
+
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get("callbackUrl");
+
+    const onSubmit = async (values: {email: string, password: string}) => {
+        // Attempt to sign in with provided credentials
+        const response = await signIn("credentials", {
+            // Redirect URL after successful login
+            callbackUrl: callbackUrl || "/",
+            // Prevent automatic redirect
+            redirect: false,
+            email: values.email,
+            password: values.password
+        })
+
+        console.log(response)
+        if(response?.ok) {
+            // Get the current session to retrieve the user's data
+            const session = await getSession();
+            const role = session?.user?.role;
+
+            // Redirect to the appropriate page based on the callbackUrl
+            if (callbackUrl) {
+                window.location.href = callbackUrl;
+            } else {
+
+                    // If no callbackUrl, redirect to the respective dashboard
+                    if (role === "admin") {
+                        window.location.href = "/admin-dashboard";
+                    } else {
+                        window.location.href = "/user-dashboard";
+                    }
+                }
+            } else {
+                // If login failed, log the error
+                console.log("Login failed", response?.error);
+            }
+        }
+
     return (
         <Form {...form}>
-            <form className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 3xl:w-1/2">
+            <form onSubmit={form.handleSubmit(onSubmit)}
+            className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 3xl:w-1/2">
                 {/* Email */}
                 <FormField
                 control={form.control}
                 name="email"
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 render={({ field }) => (
                     <FormItem className="mb-5">
                         {/* Label */}
@@ -37,6 +78,7 @@ export default function LoginForm() {
                         {/* Email Input */}
                         <FormControl>
                             <VariantInput
+                            {...field}
                             variant="auth"
                             type="email"
                             placeholder="Enter Email"
@@ -53,7 +95,6 @@ export default function LoginForm() {
                 <FormField
                 control={form.control}
                 name="password"
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 render={({ field }) => (
                     <FormItem className="mb-4">
                         {/* Label */}
@@ -61,7 +102,7 @@ export default function LoginForm() {
 
                         {/* Password Input */}
                         <FormControl>
-                            <PasswordInput placeholder="Password" />
+                            <PasswordInput {...field} placeholder="Password" />
                         </FormControl>
 
                         {/* Feedback */}

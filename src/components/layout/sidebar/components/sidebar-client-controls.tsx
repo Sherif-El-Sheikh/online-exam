@@ -1,6 +1,6 @@
 "use client"
 
-import { ClipboardList, History, LayoutGrid, LogOut, PanelLeft, PanelLeftClose, X } from "lucide-react";
+import { ClipboardList, History, LayoutGrid, PanelLeft, PanelLeftClose, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import dashboardLogo from "../../../../../public/assets/images/dashboardLogo.png"
@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils/tailwind-merge";
 import { DashboardRoute, SidebarClientControlsProps } from "@/lib/types/sidebar";
 import { useSidebar } from "@/components/providers/sidebar/sidebar.provider";
+import { Logout } from "./logout";
 
 
 // Sidebar links based on roles (admin/user)
@@ -31,12 +32,6 @@ const dashboardRoutes : DashboardRoute[] = [
         href: '/user-dashboard/quiz-history',
         roles: ["user"]
     },
-    {
-        name: "Log Out",
-        icon: LogOut,
-        href: '',
-        roles: ["admin", "user"]
-    }
 ]
 
 
@@ -73,7 +68,7 @@ export function SidebarClientControls({role} : SidebarClientControlsProps) {
                 <div className={cn("p-5 mt-8 md:mt-0 md:p-6 transition-all duration-500 ease-in-out", isCollapsed && "md:p-4")}>
                     <div className="flex items-center mt-8 md:mt-3 mb-14">
                         {/* Logo */}
-                        <Link href="/user-dashboard" className="flex-1">
+                        <Link href={role === "admin" ? "/admin-dashboard" : "/user-dashboard"} className="flex-1">
                         <Image
                         src={dashboardLogo}
                         width={125}
@@ -146,6 +141,7 @@ export function SidebarClientControls({role} : SidebarClientControlsProps) {
                                 </Link> 
                             )
                         })}
+                        <Logout isCollapsed={isCollapsed}/>
                     </div>
                 </div>
             </div>
