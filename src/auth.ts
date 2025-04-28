@@ -73,7 +73,7 @@ export const authOptions: NextAuthOptions = {
         // This function Customize the contents of the JWT token before it gets encrypted and stored
         // The token object stores encrypted data in the cookie
         jwt: ({token, user, profile}) => {
-            
+
             // If there's a profile (from Google)
             if (profile) {
                 token.user = {

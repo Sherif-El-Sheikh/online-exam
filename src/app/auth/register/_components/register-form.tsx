@@ -28,185 +28,188 @@ export default function RegisterForm() {
     });
 
     return (
+        
         <Form {...form}>
-            <form className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 3xl:w-1/2">
-                {/* Username */}
-                <FormField
-                control={form.control}
-                name="username"
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                render={({ field }) => (
-                    <FormItem>
-                        {/* Label */}
-                        <FormLabel className="sr-only">User Name</FormLabel>
+            <div className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 3xl:w-1/2">
+                <form >
+                    {/* Username */}
+                    <FormField
+                    control={form.control}
+                    name="username"
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    render={({ field }) => (
+                        <FormItem>
+                            {/* Label */}
+                            <FormLabel className="sr-only">User Name</FormLabel>
 
-                        {/* Username Input */}
-                        <FormControl className="mb-2">
+                            {/* Username Input */}
+                            <FormControl className="mb-2">
+                                <VariantInput
+                                variant="auth"
+                                type="text"
+                                placeholder="User Name"
+                                />
+                            </FormControl>
+
+                            {/* Feedback */}
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+
+                    <div className="mb-4 flex items-center gap-2">
+                    {/* First Name */}
+                    <FormField
+                        control={form.control}
+                        name="firstName"
+                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                        render={({ field }) => (
+                        <FormItem className="w-1/2">
+                            {/* Label */}
+                            <FormLabel className="sr-only">First Name</FormLabel>
+
+                            {/* First Name Input */}
+                            <FormControl>
                             <VariantInput
-                            variant="auth"
-                            type="text"
-                            placeholder="User Name"
+                                variant="auth"
+                                type="text"
+                                placeholder="First Name"
                             />
-                        </FormControl>
+                            </FormControl>
 
-                        {/* Feedback */}
-                        <FormMessage />
-                    </FormItem>
-                )}
-                />
+                            {/* Feedback */}
+                            <FormMessage />
+                        </FormItem>
+                        )}
+                    />
 
-                <div className="mb-4 flex items-center gap-2">
-                {/* First Name */}
-                <FormField
+                    {/* Last Name */}
+                    <FormField
+                        control={form.control}
+                        name="lastName"
+                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                        render={({ field }) => (
+                        <FormItem className="w-1/2">
+                            {/* Label */}
+                            <FormLabel className="sr-only">last Name</FormLabel>
+
+                            {/* Last Name Input */}
+                            <FormControl>
+                            <VariantInput
+                                variant="auth"
+                                type="text"
+                                placeholder="Last Name"
+                            />
+                            </FormControl>
+
+                            {/* Feedback */}
+                            <FormMessage />
+                        </FormItem>
+                        )}
+                    />
+                    </div>
+
+                    {/* Email */}
+                    <FormField
                     control={form.control}
-                    name="firstName"
+                    name="email"
                     // eslint-disable-next-line @typescript-eslint/no-unused-vars
                     render={({ field }) => (
-                    <FormItem className="w-1/2">
-                        {/* Label */}
-                        <FormLabel className="sr-only">First Name</FormLabel>
+                        <FormItem>
+                            {/* Label */}
+                            <FormLabel className="sr-only">Email</FormLabel>
 
-                        {/* First Name Input */}
-                        <FormControl>
-                        <VariantInput
-                            variant="auth"
-                            type="text"
-                            placeholder="First Name"
-                        />
-                        </FormControl>
+                            {/* Email Input*/}
+                            <FormControl className="mb-4">
+                                <VariantInput variant="auth" type="email" placeholder="Email" />
+                            </FormControl>
 
-                        {/* Feedback */}
-                        <FormMessage />
-                    </FormItem>
+                            {/* Feedback */}
+                            <FormMessage />
+                        </FormItem>
                     )}
-                />
+                    />
 
-                {/* Last Name */}
-                <FormField
+                    {/* Phone */}
+                    <FormField
                     control={form.control}
-                    name="lastName"
+                    name="phone"
                     // eslint-disable-next-line @typescript-eslint/no-unused-vars
                     render={({ field }) => (
-                    <FormItem className="w-1/2">
-                        {/* Label */}
-                        <FormLabel className="sr-only">last Name</FormLabel>
+                        <FormItem>
+                            {/* Label */}
+                            <FormLabel className="sr-only">Phone</FormLabel>
 
-                        {/* Last Name Input */}
-                        <FormControl>
-                        <VariantInput
-                            variant="auth"
-                            type="text"
-                            placeholder="Last Name"
-                        />
-                        </FormControl>
+                            {/* Phone Input */}
+                            <FormControl className="mb-4">
+                                <VariantInput variant="auth" type="tel" placeholder="Phone" />
+                            </FormControl>
 
-                        {/* Feedback */}
-                        <FormMessage />
-                    </FormItem>
+                            {/* Feedback */}
+                            <FormMessage />
+                        </FormItem>
                     )}
-                />
-                </div>
+                    />
 
-                {/* Email */}
-                <FormField
-                control={form.control}
-                name="email"
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                render={({ field }) => (
-                    <FormItem>
-                        {/* Label */}
-                        <FormLabel className="sr-only">Email</FormLabel>
+                    {/* Passwrod */}
+                    <FormField
+                    control={form.control}
+                    name="password"
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    render={({ field }) => (
+                        <FormItem>
+                            {/* Label */}
+                            <FormLabel className="sr-only">Password</FormLabel>
 
-                        {/* Email Input*/}
-                        <FormControl className="mb-4">
-                            <VariantInput variant="auth" type="email" placeholder="Email" />
-                        </FormControl>
+                            {/* Passwrod Input*/}
+                            <FormControl className="mb-4">
+                                <PasswordInput placeholder="Password" />
+                            </FormControl>
 
-                        {/* Feedback */}
-                        <FormMessage />
-                    </FormItem>
-                )}
-                />
+                            {/* Feedback */}
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                    />
 
-                {/* Phone */}
-                <FormField
-                control={form.control}
-                name="phone"
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                render={({ field }) => (
-                    <FormItem>
-                        {/* Label */}
-                        <FormLabel className="sr-only">Phone</FormLabel>
+                    {/* Confirm Passsword */}
+                    <FormField
+                    control={form.control}
+                    name="rePassword"
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    render={({ field }) => (
+                        <FormItem>
+                            {/* Label */}
+                            <FormLabel className="sr-only">Confirm Password</FormLabel>
 
-                        {/* Phone Input */}
-                        <FormControl className="mb-4">
-                            <VariantInput variant="auth" type="tel" placeholder="Phone" />
-                        </FormControl>
+                            {/* Confirm Passwrod Input*/}
+                            <FormControl className="mb-4">
+                                <PasswordInput placeholder="Confirm Passsword" />
+                            </FormControl>
 
-                        {/* Feedback */}
-                        <FormMessage />
-                    </FormItem>
-                )}
-                />
+                            {/* Feedback */}
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                    />
 
-                {/* Passwrod */}
-                <FormField
-                control={form.control}
-                name="password"
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                render={({ field }) => (
-                    <FormItem>
-                        {/* Label */}
-                        <FormLabel className="sr-only">Password</FormLabel>
+                    {/* Have an account */}
+                    <p className="my-4 text-center font-poppins text-sm font-normal lg:text-base">
+                    Already have an account?
+                        <Link href="/auth/login" className="mx-2 text-main">
+                            Sign in
+                        </Link>
+                    </p>
 
-                        {/* Passwrod Input*/}
-                        <FormControl className="mb-4">
-                            <PasswordInput placeholder="Password" />
-                        </FormControl>
+                    {/* Sign up */}
+                    <Button size="xl" variant="auth" type="submit" className="mb-5 sm:mb-7">
+                    Create Account
+                    </Button>
 
-                        {/* Feedback */}
-                        <FormMessage />
-                    </FormItem>
-                )}
-                />
-
-                {/* Confirm Passsword */}
-                <FormField
-                control={form.control}
-                name="rePassword"
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                render={({ field }) => (
-                    <FormItem>
-                        {/* Label */}
-                        <FormLabel className="sr-only">Confirm Password</FormLabel>
-
-                        {/* Confirm Passwrod Input*/}
-                        <FormControl className="mb-4">
-                            <PasswordInput placeholder="Confirm Passsword" />
-                        </FormControl>
-
-                        {/* Feedback */}
-                        <FormMessage />
-                    </FormItem>
-                )}
-                />
-
-                {/* Have an account */}
-                <p className="my-4 text-center font-poppins text-sm font-normal lg:text-base">
-                Already have an account?
-                    <Link href="/auth/login" className="mx-2 text-main">
-                        Sign in
-                    </Link>
-                </p>
-
-                {/* Sign up */}
-                <Button size="xl" variant="auth" type="submit" className="mb-5 sm:mb-7">
-                Create Account
-                </Button>
-
-                {/* Continue With */}
+                    {/* Continue With */}
+                </form>
                 <AuthSocial />
-            </form>
+            </div>
         </Form>
     );
 }
