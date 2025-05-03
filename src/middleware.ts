@@ -14,6 +14,16 @@ const publicPages = new Set([
     ...Array.from(authPages)
 ])
 
+// Function to generate a random 16-character query
+const generateComplexQuery = () => {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+    let result = "";
+    for (let i = 0; i < 16; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+}
+
 export default async function middleware(req:NextRequest) {
     const token = await getToken({req})
 
@@ -41,17 +51,34 @@ export default async function middleware(req:NextRequest) {
     // In private pages
     // Role-based protection
     if (token) {
-        // If user tries to access admin dashboard
-        if (req.nextUrl.pathname.startsWith("/admin-dashboard") && token?.user?.role !== "admin") {
-            const redirectUrl = new URL("/user-dashboard", req.nextUrl.origin);
-            return NextResponse.redirect(redirectUrl);
-        }
 
-        // If admin tries to access user dashboard
-        if (req.nextUrl.pathname.startsWith("/user-dashboard") && token?.user?.role !== "user") {
-            const redirectUrl = new URL("/admin-dashboard", req.nextUrl.origin);
-            return NextResponse.redirect(redirectUrl);
-        }
+    // If user tries to access admin dashboard
+    if (req.nextUrl.pathname.startsWith("/admin-dashboard") && token?.user?.role !== "admin") {
+        const redirectUrl = new URL("/unauthorized", req.nextUrl.origin);
+
+        // Create a fake/random query parameter
+        const complexKey = "authKey";
+        const complexValue = generateComplexQuery();
+
+        // Append the random query to the URL
+        redirectUrl.searchParams.set(complexKey, complexValue + ".");
+
+        return NextResponse.redirect(redirectUrl);
+    }
+
+    // If admin tries to access user dashboard
+    if (req.nextUrl.pathname.startsWith("/user-dashboard") && token?.user?.role !== "user") {
+        const redirectUrl = new URL("/unauthorized", req.nextUrl.origin);
+
+        // Create a fake/random query parameter
+        const complexKey = "authKey";
+        const complexValue = generateComplexQuery();
+
+        // Append the random query to the URL
+        redirectUrl.searchParams.set(complexKey, complexValue + ".");
+        
+        return NextResponse.redirect(redirectUrl);
+    }
 
         // If the token is valid continue with the request
         return NextResponse.next();
@@ -59,7 +86,10 @@ export default async function middleware(req:NextRequest) {
 
     // If there is no token, redirect to the login page and save the current page URL to return to it after login
     const redirectUrl = new URL ("/auth/login", req.nextUrl.origin)
-    redirectUrl.searchParams.set("callbackUrl", req.nextUrl.pathname);
+
+    // Attach the full current URL as callbackUrl
+    redirectUrl.searchParams.set("callbackUrl", req.nextUrl.href);
+
     return NextResponse.redirect(redirectUrl)
 }
 
