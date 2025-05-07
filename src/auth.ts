@@ -24,7 +24,7 @@ export const authOptions: NextAuthOptions = {
             // This function runs when a user tries to sign in
             authorize: async (Credentials) => {
                 // Send a request to the backend
-                const response = await fetch(`${process.env.API}/auth/signin`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
                     method: "POST",
                     body: JSON.stringify({
                         // Extract email and password from credentials

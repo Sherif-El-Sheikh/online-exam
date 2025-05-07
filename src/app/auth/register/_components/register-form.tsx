@@ -11,11 +11,19 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
+import { JSON_HEADER } from "@/lib/constants/api.constants";
+import { RegisterFields, registerSchema } from "@/lib/schemes/auth.schemes";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
-    const form = useForm({
+        // Navigation
+        const router = useRouter();
+
+    // Register form with validation
+    const form = useForm<RegisterFields>({
         defaultValues: {
         username: "",
         firstName: "",
@@ -25,26 +33,53 @@ export default function RegisterForm() {
         rePassword: "",
         phone: "",
         },
+        resolver: zodResolver(registerSchema)
     });
 
+    // Form submission
+    const onSubmit:SubmitHandler<RegisterFields> = async (values) => {
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
+                method: "POST",
+                body: JSON.stringify(values),
+                headers: {
+                    ...JSON_HEADER
+                }
+            })
+
+            const data = await res.json();
+
+            if (res.ok) {
+                // onSuccess
+                router.push("/auth/login")
+                console.log("Success:", data.message)
+            } else {
+                // onError
+                console.error("Error:", data.message)
+            }
+
+        } catch(error) {
+            console.error("An unexpected error occurred:", error);
+        }
+    }
+
     return (
-        
         <Form {...form}>
             <div className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 3xl:w-1/2">
-                <form >
+                <form onSubmit={form.handleSubmit(onSubmit)}>
                     {/* Username */}
                     <FormField
                     control={form.control}
                     name="username"
-                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
                     render={({ field }) => (
                         <FormItem>
                             {/* Label */}
                             <FormLabel className="sr-only">User Name</FormLabel>
 
                             {/* Username Input */}
-                            <FormControl className="mb-2">
+                            <FormControl className="mb-1">
                                 <VariantInput
+                                {...field}
                                 variant="auth"
                                 type="text"
                                 placeholder="User Name"
@@ -57,20 +92,20 @@ export default function RegisterForm() {
                     )}
                     />
 
-                    <div className="mb-4 flex items-center gap-2">
+                    <div className="mb-3 flex items-center gap-x-2">
                     {/* First Name */}
                     <FormField
                         control={form.control}
                         name="firstName"
-                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         render={({ field }) => (
                         <FormItem className="w-1/2">
                             {/* Label */}
                             <FormLabel className="sr-only">First Name</FormLabel>
 
                             {/* First Name Input */}
-                            <FormControl>
+                            <FormControl >
                             <VariantInput
+                                {...field}
                                 variant="auth"
                                 type="text"
                                 placeholder="First Name"
@@ -87,15 +122,15 @@ export default function RegisterForm() {
                     <FormField
                         control={form.control}
                         name="lastName"
-                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         render={({ field }) => (
                         <FormItem className="w-1/2">
                             {/* Label */}
                             <FormLabel className="sr-only">last Name</FormLabel>
 
                             {/* Last Name Input */}
-                            <FormControl>
+                            <FormControl >
                             <VariantInput
+                                {...field}
                                 variant="auth"
                                 type="text"
                                 placeholder="Last Name"
@@ -113,15 +148,14 @@ export default function RegisterForm() {
                     <FormField
                     control={form.control}
                     name="email"
-                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
                     render={({ field }) => (
                         <FormItem>
                             {/* Label */}
                             <FormLabel className="sr-only">Email</FormLabel>
 
                             {/* Email Input*/}
-                            <FormControl className="mb-4">
-                                <VariantInput variant="auth" type="email" placeholder="Email" />
+                            <FormControl className="mb-3">
+                                <VariantInput {...field} variant="auth" type="email" placeholder="Email" />
                             </FormControl>
 
                             {/* Feedback */}
@@ -134,15 +168,14 @@ export default function RegisterForm() {
                     <FormField
                     control={form.control}
                     name="phone"
-                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
                     render={({ field }) => (
                         <FormItem>
                             {/* Label */}
                             <FormLabel className="sr-only">Phone</FormLabel>
 
                             {/* Phone Input */}
-                            <FormControl className="mb-4">
-                                <VariantInput variant="auth" type="tel" placeholder="Phone" />
+                            <FormControl className="mb-3">
+                                <VariantInput {...field} variant="auth" type="tel" placeholder="Phone" />
                             </FormControl>
 
                             {/* Feedback */}
@@ -155,15 +188,14 @@ export default function RegisterForm() {
                     <FormField
                     control={form.control}
                     name="password"
-                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
                     render={({ field }) => (
                         <FormItem>
                             {/* Label */}
                             <FormLabel className="sr-only">Password</FormLabel>
 
                             {/* Passwrod Input*/}
-                            <FormControl className="mb-4">
-                                <PasswordInput placeholder="Password" />
+                            <FormControl className="mb-3">
+                                <PasswordInput {...field} placeholder="Password" />
                             </FormControl>
 
                             {/* Feedback */}
@@ -176,15 +208,14 @@ export default function RegisterForm() {
                     <FormField
                     control={form.control}
                     name="rePassword"
-                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
                     render={({ field }) => (
                         <FormItem>
                             {/* Label */}
                             <FormLabel className="sr-only">Confirm Password</FormLabel>
 
                             {/* Confirm Passwrod Input*/}
-                            <FormControl className="mb-4">
-                                <PasswordInput placeholder="Confirm Passsword" />
+                            <FormControl className="mb-3">
+                                <PasswordInput {...field} placeholder="Confirm Passsword" />
                             </FormControl>
 
                             {/* Feedback */}
@@ -202,12 +233,14 @@ export default function RegisterForm() {
                     </p>
 
                     {/* Sign up */}
-                    <Button size="xl" variant="auth" type="submit" className="mb-5 sm:mb-7">
+                    <Button size="xl" variant="auth" type="submit" className="mb-5 sm:mb-7" 
+                    disabled={form.formState.isSubmitted && !form.formState.isValid}
+                    >
                     Create Account
                     </Button>
-
-                    {/* Continue With */}
                 </form>
+                
+                {/* Continue With */}
                 <AuthSocial />
             </div>
         </Form>

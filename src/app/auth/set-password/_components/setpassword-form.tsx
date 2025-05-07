@@ -10,25 +10,60 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
+import { JSON_HEADER } from "@/lib/constants/api.constants";
+import { setPasswordFields, setPasswordSchema } from "@/lib/schemes/auth.schemes";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function SetPasswordForm() {
-    const form = useForm({
+        // Navigation
+        const router = useRouter();
+    
+    // Set password form with validation
+    const form = useForm<setPasswordFields>({
         defaultValues: {
         email: "",
-        newPassword: "",
+        newPassword: ""
         },
+        resolver: zodResolver(setPasswordSchema)
     });
+
+        // Form submission
+        const onSubmit:SubmitHandler<setPasswordFields> = async (values) => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/resetPassword`, {
+                    method: "PUT",
+                    body: JSON.stringify(values),
+                    headers: {
+                        ...JSON_HEADER
+                    }
+                })
+
+                const data = await res.json()
+
+                if(res.ok) {
+                    // onSuccess
+                    router.push("/auth/login")
+                    console.log("Success:", data.message)
+                } else {
+                    // onError
+                    console.error("Error:", data.message)
+                }
+
+            } catch (error) {
+                console.log("An unexpected error occurred:", error)
+            }
+        }
 
     return (
         <Form {...form}>
-            <form className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 3xl:w-1/2">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="min-[576px]:max-md:mx-auto min-[576px]:max-md:w-3/4 md:w-4/5 lg:w-3/4 xl:w-4/6 3xl:w-1/2">
                 {/* Email */}
                 <FormField
                 control={form.control}
                 name="email"
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 render={({ field }) => (
                     <FormItem className="mb-5">
                         {/* Label */}
@@ -37,6 +72,7 @@ export default function SetPasswordForm() {
                         {/* Email Input */}
                         <FormControl>
                             <VariantInput
+                            {...field}
                             variant="auth"
                             type="email"
                             placeholder="Enter Email"
@@ -53,7 +89,6 @@ export default function SetPasswordForm() {
                 <FormField
                 control={form.control}
                 name="newPassword"
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 render={({ field }) => (
                     <FormItem className="mb-4">
                         {/* Label */}
@@ -61,7 +96,7 @@ export default function SetPasswordForm() {
 
                         {/* New Password Input */}
                         <FormControl className="mb-5">
-                            <PasswordInput placeholder="New Password" />
+                            <PasswordInput {...field} placeholder="New Password" />
                         </FormControl>
 
                         {/* Feedback */}
@@ -71,7 +106,9 @@ export default function SetPasswordForm() {
                 />
 
                 {/* Save New Password */}
-                <Button size="xl" variant="auth" type="submit" className="mb-6 sm:mb-8">
+                <Button size="xl" variant="auth" type="submit" className="mb-6 sm:mb-8"
+                disabled={form.formState.isSubmitted && !form.formState.isValid}
+                >
                 Save New Password
                 </Button>
 
