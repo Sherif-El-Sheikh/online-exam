@@ -10,14 +10,18 @@ export default function AuthNav() {
             <SwitchLanguage />
 
             {/* Button Signin*/}
-            <Button variant="signin">
-                <Link href="/auth/login">Sign in</Link>
-            </Button>
+            <Link href="/auth/login">
+                <Button variant="signin">
+                    Sign in
+                </Button>
+            </Link>
 
             {/* Button Register*/}
-            <Button variant="register">
-                <Link href="/auth/register">Register</Link>
-            </Button>
+            <Link href="/auth/register">
+                <Button variant="register">
+                    Register
+                </Button>
+            </Link>
         </nav>
     );
 }
