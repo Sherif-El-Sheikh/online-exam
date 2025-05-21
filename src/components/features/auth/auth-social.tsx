@@ -1,53 +1,56 @@
-import Image from "next/image"
-import SocialIconItem from "./components/social-icon-item"
-import logoGoogle from '../../../../public/assets/images/Logo Google.png'
-import { FaFacebook, FaTwitter, FaApple } from 'react-icons/fa';
+import Image from "next/image";
+import SocialIconItem from "./components/social-icon-item";
+import logoGoogle from "@assets/images/Logo Google.png";
+import { FaFacebook, FaTwitter, FaApple } from "react-icons/fa";
 import { signIn } from "next-auth/react";
 
 export default function AuthSocial() {
+  return (
+    // Continue With
+    <div className="text-center">
+      {/* Title */}
+      <div className="relative mb-4 flex items-center">
+        <div className="h-px flex-grow bg-slate-200"></div>
+        <span className="bg-white px-4 font-inter text-sm font-medium text-slate-500 sm:text-base">
+          Or Continue with
+        </span>
+        <div className="h-px flex-grow bg-slate-200"></div>
+      </div>
 
-    return (
-        // Continue With
-        <div className="text-center">
-            {/* Title */}
-            <div className="relative flex items-center mb-4">
-                <div className="flex-grow h-px bg-slate-200"></div>
-                    <span className="px-4 bg-white text-sm sm:text-base text-slate-500 font-medium font-inter">Or Continue with</span>
-                <div className="flex-grow h-px bg-slate-200"></div>
-            </div>
+      {/* Icons */}
+      <ul className="itmes-center flex justify-center gap-4 lg:gap-8">
+        {/*Google*/}
+        <SocialIconItem
+          onClick={() => {
+            signIn("google", {
+              callbackUrl: "/user-dashboard",
+            });
+          }}
+        >
+          <Image
+            src={logoGoogle}
+            alt="google icon"
+            width={20}
+            height={20}
+            className="w-[17px] lg:w-[18px]"
+          />
+        </SocialIconItem>
 
-            {/* Icons */}
-            <ul className="flex itmes-center justify-center gap-4 lg:gap-8">
-                {/*Google*/}
-                <SocialIconItem onClick={() => {
-                    signIn("google", {
-                        callbackUrl: '/user-dashboard'
-                    })
-                }}>
-                    <Image
-                    src={logoGoogle}
-                    alt="google icon"
-                    width={20}
-                    height={20}
-                    className="w-[17px] lg:w-[18px]"
-                    />
-                </SocialIconItem>
+        {/*Facebook*/}
+        <SocialIconItem>
+          <FaFacebook className="scale-125 text-[#1877F2]" />
+        </SocialIconItem>
 
-                {/*Facebook*/}
-                <SocialIconItem>
-                    <FaFacebook className="text-[#1877F2] scale-125" />
-                </SocialIconItem>
+        {/*Twitter*/}
+        <SocialIconItem>
+          <FaTwitter className="scale-125 text-[#1D9BF0]" />
+        </SocialIconItem>
 
-                {/*Twitter*/}
-                <SocialIconItem>
-                    <FaTwitter className="text-[#1D9BF0] scale-125" />
-                </SocialIconItem>
-                
-                {/*Apple*/}
-                <SocialIconItem>
-                    <FaApple className="text-black scale-125" />
-                </SocialIconItem>
-            </ul>
-        </div>
-    )
+        {/*Apple*/}
+        <SocialIconItem>
+          <FaApple className="scale-125 text-black" />
+        </SocialIconItem>
+      </ul>
+    </div>
+  );
 }
